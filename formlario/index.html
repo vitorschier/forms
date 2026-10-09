@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulário de Cadastro via DOM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="layout">
+    <section class="coluna" aria-labelledby="titulo-form">
+      <h1 id="titulo-form">Cadastro institucional</h1>
+
+      <!-- novalidate: a validação é feita pelo JavaScript, com mensagens na interface -->
+      <form id="cadastroForm" novalidate>
+        <div class="campo">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex.: Maria da Silva" required>
+          <span class="erro" id="erroNome" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="nome@exemplo.com" required>
+          <span class="erro" id="erroEmail" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha de acesso</label>
+          <input type="password" id="senha" name="senha" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+          <span class="erro" id="erroSenha" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label for="confirmaSenha">Confirmação de senha</label>
+          <input type="password" id="confirmaSenha" name="confirmaSenha" placeholder="Repita a senha" required>
+          <span class="erro" id="erroConfirma" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label for="perfil">Perfil técnico</label>
+          <select id="perfil" name="perfil" required>
+            <option value="">Selecione uma área</option>
+            <option value="Redes">Redes</option>
+            <option value="Desenvolvimento">Desenvolvimento</option>
+            <option value="Suporte">Suporte</option>
+            <option value="Banco de Dados">Banco de Dados</option>
+          </select>
+          <span class="erro" id="erroPerfil" role="alert"></span>
+        </div>
+
+        <div class="campo campo-check">
+          <label class="check">
+            <input type="checkbox" id="termos" name="termos" required>
+            <span>Li e aceito os termos de uso</span>
+          </label>
+          <span class="erro" id="erroTermos" role="alert"></span>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section class="coluna painel" aria-labelledby="titulo-saida" aria-live="polite">
+      <h2 id="titulo-saida">Dados cadastrados</h2>
+      <p id="vazio" class="vazio">Nenhum cadastro ainda. Preencha o formulário ao lado.</p>
+
+      <dl id="saida" hidden>
+        <dt>Nome</dt>
+        <dd id="saidaNome"></dd>
+        <dt>E-mail</dt>
+        <dd id="saidaEmail"></dd>
+        <dt>Perfil técnico</dt>
+        <dd id="saidaPerfil"></dd>
+        <dt>Termos de uso</dt>
+        <dd id="saidaTermos"></dd>
+      </dl>
+
+      <p id="sucesso" class="sucesso" hidden>Cadastro realizado com sucesso.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

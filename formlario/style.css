@@ -1,0 +1,87 @@
+:root {
+  --fundo: #eef2f6;
+  --papel: #ffffff;
+  --tinta: #1b2733;
+  --suave: #5b6b7a;
+  --linha: #cfd8e1;
+  --acento: #0b5fa5;
+  --erro: #b3261e;
+  --ok: #1b7a43;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--tinta);
+  line-height: 1.5;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.coluna {
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 8px;
+  padding: 28px;
+}
+
+h1, h2 { margin: 0 0 20px; font-size: 1.4rem; }
+
+.campo { margin-bottom: 16px; }
+
+label { display: block; font-weight: 600; margin-bottom: 4px; }
+
+input[type="text"], input[type="email"], input[type="password"], select {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  border: 1px solid var(--linha);
+  border-radius: 6px;
+  background: #fff;
+}
+
+input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 3px solid rgba(11, 95, 165, .35);
+  border-color: var(--acento);
+}
+
+.invalido { border-color: var(--erro) !important; }
+
+.erro { display: block; min-height: 1.2em; margin-top: 4px; font-size: .85rem; color: var(--erro); }
+
+.check { display: flex; align-items: center; gap: 8px; font-weight: 400; }
+.check input { width: 18px; height: 18px; }
+
+button {
+  width: 100%;
+  padding: 12px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--acento);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover { background: #094c85; }
+
+.painel dt { font-size: .85rem; color: var(--suave); margin-top: 14px; }
+.painel dd { margin: 2px 0 0; font-size: 1.05rem; font-weight: 600; word-break: break-word; }
+.vazio { color: var(--suave); }
+.sucesso { margin-top: 20px; color: var(--ok); font-weight: 600; }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+}
